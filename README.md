@@ -300,13 +300,13 @@ Think about this in terms of the mathematical definition of a gradient — for e
 [✅] Addition works (forward pass correct)
 [✅] Multiplication works (forward pass correct)
 [ ] Power operation works (forward pass correct)
-[ ] Chosen nonlinearity works (forward pass correct)
+[✅ ] Chosen nonlinearity works (forward pass correct)
 [✅] Graph structure correctly tracks parent relationships
-[ ] Local derivatives correctly computed for each operation (verified by hand)
-[ ] Single-path backpropagation produces correct gradients
-[ ] Topological ordering correctly handles branching graphs
+[✅] Local derivatives correctly computed for each operation (verified by hand)
+[✅] Single-path backpropagation produces correct gradients
+[✅] Topological ordering correctly handles branching graphs
 [ ] Gradient accumulation works for reused values (x*x, x+x cases)
-[ ] Full backpropagation matches numerical gradient checking within tolerance
+[✅] Full backpropagation matches numerical gradient checking within tolerance
 [ ] Neuron produces correct output for known weights
 [ ] Layer correctly aggregates multiple neurons
 [ ] MLP correctly chains multiple layers
