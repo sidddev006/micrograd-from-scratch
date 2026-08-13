@@ -24,10 +24,27 @@ class Value:
             other.grad += self.data * out.grad
         out._backward = _backward
         return out
+    
+    def backward(self):
+        order = []
+        visited = set()
 
+        def build_order(node):
+            if node not in visited:
+                visited.add(node)
+                if node.parents:
+                    for parent in node.parents:
+                        build_order(parent)
+                order.append(node)
+
+        build_order(self)
+        self.grad = 1.0
+        for node in reversed(order):
+            if node.parents:
+                node._backward()
     #def __radd__(self, other):
 
-        
+       
 v = Value(5)
 a = Value(5)
 b = Value(10)
@@ -35,19 +52,26 @@ c = Value(15, (a,b))
 #print(c.parents)
 d = a*b
 d.grad = 1.0
+''''
 d._backward()
 print(a.grad, b.grad)#prints 10.0 5.0
 e = a+b
 e.grad = 1.0
 e._backward()
 print(a.grad, b.grad) #prints 11.0 6.0
+'''
 x = Value(3)
 y = Value(4)
 z = x+y
 w = z*x
+'''
 w.grad = 1.0
 w._backward()
 z._backward()
+print(x.grad, z.grad, y.grad)# prints 10.0 3.0 3.0
+'''
+w2 = z * x
+w2.backward()
 print(x.grad, z.grad, y.grad)
 '''
 print(d)
