@@ -1,5 +1,5 @@
 This is my implementation of micrograd which I learned from Andrej Karpathy
-The structure that i am going to follow:- # HIGH-LEVEL ARCHITECTURE
+# HIGH-LEVEL ARCHITECTURE
 
 ```
 Value (scalar wrapper)
