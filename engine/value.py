@@ -22,6 +22,7 @@ c = Value(15, (a,b))
 #print(c.parents)
 d = a*b
 print(d)
+print(d.parents)
 print(type(d.parents[0]))
 '''
 print(a+b)
