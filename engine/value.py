@@ -53,7 +53,7 @@ class Value:
                 node._backward()
     #def __radd__(self, other):
 
-''''       
+'''       
 v = Value(5)
 a = Value(5)
 b = Value(10)
@@ -90,7 +90,7 @@ print(a+b)
 print(type(a+b))
 print(v.data)
 print(a.data) #print always returns a str
-''''
+
 t = Value(0)
 out = t.tanh()
 out.backward()
@@ -107,3 +107,4 @@ out.backward()
 
 print("analytical:", x.grad)
 print("numerical:", numerical_grad)
+'''

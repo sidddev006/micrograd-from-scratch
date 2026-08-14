@@ -1,9 +1,8 @@
 import sys
 import os
 import random
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'engine'))
-from value import Value
-from neuron import Neuron
+from engine.value import Value
+from nn.neuron import Neuron
 
 class Layer:
     def __init__(self, num_inputs, num_neurons):

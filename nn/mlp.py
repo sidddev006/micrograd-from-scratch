@@ -1,10 +1,9 @@
 import sys
 import os
 import random
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'engine'))
-from value import Value
-from layer import Layer
-from neuron import Neuron
+from engine.value import Value
+from nn.layer import Layer
+from nn.neuron import Neuron
 
 class MLP:
     def __init__(self, num_inputs, layer_sizes):

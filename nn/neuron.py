@@ -1,8 +1,7 @@
 import sys
 import os
 import random
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'engine'))
-from value import Value
+from engine.value import Value
 
 class Neuron:
     def __init__(self, num_inputs):
