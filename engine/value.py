@@ -9,6 +9,7 @@ class Value:
         return str(self.data)
 
     def __add__(self, other):
+        other = self._ensure_value(other)
         out = self.data + other.data
         out = Value(out, (self, other))
         def _backward():
@@ -18,6 +19,7 @@ class Value:
         return out
 
     def __mul__(self, other):
+        other = self._ensure_value(other)
         out = self.data * other.data
         out = Value(out, (self, other))
         def _backward():
@@ -51,9 +53,49 @@ class Value:
         for node in reversed(order):
             if node.parents:
                 node._backward()
-    #def __radd__(self, other):
+    def __neg__(self):
+        return self * Value(-1)
 
-'''       
+    def __pow__(self, n):
+        out = Value(self.data ** n, (self, ))
+        def _backward():
+            self.grad += (n * self.data **(n-1)) * out.grad
+        out._backward = _backward
+        return out
+
+    def __sub__(self, other):
+        other = self._ensure_value(other)
+        return self + (-other)
+    
+    def __truediv__(self, other):
+        other = self._ensure_value(other)
+        return self * other ** -1
+
+    def __radd__(self, other):
+        return self+other
+    
+    def __rmul__(self, other):
+        return self*other
+
+    def _ensure_value(self, other):
+        return other if isinstance(other, Value) else Value(other)
+
+a = Value(5)
+print(a + 3)
+print(3 + a)
+print(a * 2)
+print(2 * a)
+'''
+a = Value(6)
+b = Value(3)
+print(a-b)
+print(a / b)
+print(a** 2)
+
+a = -5
+print(type(a))
+
+     
 v = Value(5)
 a = Value(5)
 b = Value(10)
