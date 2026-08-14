@@ -80,12 +80,13 @@ class Value:
     def _ensure_value(self, other):
         return other if isinstance(other, Value) else Value(other)
 
+'''
 a = Value(5)
 print(a + 3)
 print(3 + a)
 print(a * 2)
 print(2 * a)
-'''
+
 a = Value(6)
 b = Value(3)
 print(a-b)

@@ -12,6 +12,3 @@ class Layer:
         outputs = [n(x) for n in self.neurons]
         return outputs
 
-l = Layer(2,3)
-out = l([Value(1.0), Value(2.0)])
-print(out)

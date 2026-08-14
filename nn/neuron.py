@@ -17,6 +17,3 @@ class Neuron:
         out = total.tanh()
         return out
 
-n = Neuron(2)
-out = n([Value(1.0), Value(2.0)])
-print(out)
